@@ -11,13 +11,10 @@ data flow such that events are passed from the DOM to the magical Svelte machine
     let name = "This guy";
     let previousName = name;
     let age = 23;
-
+    let daviCount = 0;
     $: upperCaseName = name.toUpperCase();
-
     $: console.log(name);
-
-    $: if (name === "Davi") { alert("Um..."); }
-
+    $: if (daviCount === 1) { alert("Um..."); }
     $: if (name === "David") {
         (function() {
             let forbiddenName = name;
@@ -40,6 +37,7 @@ data flow such that events are passed from the DOM to the magical Svelte machine
         // `enteredValue` needs to be a `const`, but all's good
 
         const enteredValue = event.target.value;
+        previousName = name;
         name = enteredValue;
     }
 <script>
@@ -52,5 +50,6 @@ data flow such that events are passed from the DOM to the magical Svelte machine
 
 <h1>Hello {upperCaseName}, your age is {30 - ( age - 21 ) }!<h1>
 <button on:click="{incrementAge}>Change Age</button>
+<button on:click="{changeName}">Logout</button>
 <input type="text" value="{value}" on:input="{nameInput}" />
 ```
