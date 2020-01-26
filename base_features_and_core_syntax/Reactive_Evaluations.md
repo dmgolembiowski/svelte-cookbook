@@ -6,7 +6,7 @@ data flow such that events are passed from the DOM to the magical Svelte machine
 
 ### App.svelte
 
-```
+```javascript
 <script>
     let name = "This guy";
     let previousName = name;
