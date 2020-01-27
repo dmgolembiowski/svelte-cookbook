@@ -1,3 +1,4 @@
+#!/bin/bash
 # To add to one's bashrc for quick app creation
 function sva() {
     local cwd="$( pwd  )"
