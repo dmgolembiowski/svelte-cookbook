@@ -1,0 +1,22 @@
+## Convenience functions for Svelte project creation and management:
+```bash
+function sv {
+
+    # A convenience function for creating new Svelte applications
+    # that follow the syntax:
+    #       $ sv appName
+    # or
+    #       $ sv .
+
+    for app_folder_name in "$@"; do
+        app="$app_folder_name"
+        break
+    done
+    case $app in
+        . ) npx degit --force sveltejs/template . && npm install ;;
+        * ) npx degit sveltejs/template $app_folder_name && cd $app && npm install ;;
+    esac
+}
+export sv
+```
+
